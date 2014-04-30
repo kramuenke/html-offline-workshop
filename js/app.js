@@ -60,8 +60,11 @@ var app = {
 		//# to do #
 
 		//initialize photos
-		//get the saved photos, and display them in a list
-		//show an image thumbnail, file title, and size
+		var photos = JSON.parse(window.localStorage.getItem("photos")) || [];
+		photos.forEach(function(photo) {
+			var str = "<li><img src=\"" + photo.image + "\"/>" + photo.title + "</li>";
+			document.querySelector("#thePhotos").insertAdjacentHTML( 'beforeend', str );
+		});
 
 
 		//attach event listeners
@@ -305,7 +308,11 @@ var app = {
 
 		//# to do #
 
-		//now we svae the photo back the the saved photos collection
+		var collection = JSON.parse(window.localStorage.getItem("photos")) || [];
+
+		collection.push(photo);
+
+		window.localStorage.setItem("photos", JSON.stringify(collection));
 
 		//return to the main screen
 		app.gotoScreen("index.html")
