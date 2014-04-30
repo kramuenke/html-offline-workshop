@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#version 1.06 2-21-2014
+#version 1.07 2-21-2014
 
 CACHE:
 
@@ -11,15 +11,16 @@ CACHE:
 edit-photo.html
 new-account.html
 new-photo.html
+edit-account.html
 
 #style sheets
-http://webdirections.org/workshops/offline/style/style.css
+/style/style.css
 
 #style sheet images
 
 
 #javascript files
-http://webdirections.org/workshops/offline/js/app.js
+js/app.js
 
 NETWORK:
 *
