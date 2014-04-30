@@ -267,10 +267,15 @@ var app = {
 	},
 
 	takePhoto: function(evt){
-		//# to do #
-		//called when the file input for getting the photo/image changes
+		var reader = new FileReader();
+		var file = document.querySelector("#take-photo").files[0];
+		document.querySelector("#size").value = file.size;
 
+		reader.onload = function(e) {
+			document.querySelector("#the-photo").src = reader.result;
+		};
 
+		reader.readAsDataURL(file);
 	},
 
 	photoTaken: function(event){
@@ -342,10 +347,7 @@ var app = {
 	},
 
 	fakePhoto: function(evt){
-		//# to do #
-		//fake taking a photo using .click() on an invisible file input
-
-
+		document.querySelector("#take-photo").click();
 	},
 
 	cancel: function() {
