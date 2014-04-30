@@ -50,10 +50,11 @@ var app = {
 		//# to do #
 		var user = JSON.parse(window.localStorage.getItem("user"));
 		if(user) {
-			document.querySelector("#welcome").style.display = "block";
 			document.querySelector("#username").textContent = user.name;
+			document.querySelector("#welcome").style.display = "inline-block"
+			document.querySelector("#welcome p").style.display = "inline-block";
 		} else {
-			document.querySelector("#account-options").style.display = "block";
+			document.querySelector("#account-options").style.display = "inline-block";
 		}
 
 		//# to do #
@@ -146,7 +147,7 @@ var app = {
 			inputs[i].addEventListener("input", app.updateAccountUI, false)
 		};
 
-		document.querySelector("#create-new-account").addEventListener('click', app.saveAccount, false)
+		document.querySelector("#create-new-account").addEventListener('click', app.createAccount, false)
 		document.querySelector("#cancel-new-account").addEventListener('click', app.cancel, false)
 
 	},
@@ -192,9 +193,12 @@ var app = {
 
 	createNewAccount: function(){
 
-		//# to do #
+		var user = {};
+		user.name = document.querySelector("#username").value;
+		user.email = document.querySelector("#email").value;
+		user.password = document.querySelector("#password").value;
 
-		//get the new user's details, then save them as an object to localStorage
+		window.localStorage.setItem("user", JSON.stringify(user));
 
 		//return to the main window
 		app.gotoScreen("index.html")
@@ -202,12 +206,6 @@ var app = {
 
 	saveAccount: function(){
 
-		var user = {};
-		user.name = document.querySelector("#username").value;
-		user.email = document.querySelector("#email").value;
-		user.password = document.querySelector("#password").value;
-
-		window.localStorage.setItem("user", JSON.stringify(user));
 
 		app.gotoScreen("index.html");
 	},
