@@ -4,37 +4,37 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="initial-scale=1.0">
 	<title>Home</title>
-	
-	<!-- 
-	
-	if we've already go a user account, we want to welcome the user, 
+
+	<!--
+
+	if we've already go a user account, we want to welcome the user,
 	otherwise, prompt them to create a new account
-	
+
 	if the user has saved photos, we want to show them in the list
 	if the user selects a saved photo, we want to let them edit it
-	
+
 	-->
-	
+
 	<script src="js/app.js"></script>
-	
-<link rel="stylesheet" type="text/css" href="style/style.css"  />	
+
+<link rel="stylesheet" type="text/css" href="style/style.css"  />
 
 </head>
 <body id="homescreen">
 
 <h1>Slowstagram</h1>
 
-<section id="welcome">
+<section id="welcome" style="display: none">
 	<h2>
 		<span id="welcome-message">Welcome</span>
-		<span id="username"> <!-- show this if there's a user name--> </span>
+		<span id="username"></span>
 	</h2>
-	
+
 	<p><button id="edit-account">Edit Account</button></p>
 
 </section>
 
-<section id="account-options">
+<section id="account-options" style="display: none">
 <!-- don't show this if there's no existing account-->
 <h2>You're new here, why not create an account?</h2>
 <p><button id="create-account">Create Account</button></p>

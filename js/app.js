@@ -48,9 +48,13 @@ var app = {
 		//initialze the home page UI
 
 		//# to do #
-
-		//what to show if there's already an account?
-		//not an account?
+		var user = JSON.parse(window.localStorage.getItem("user"));
+		if(user) {
+			document.querySelector("#welcome").style.display = "block";
+			document.querySelector("#username").textContent = user.name;
+		} else {
+			document.querySelector("#account-options").style.display = "block";
+		}
 
 		//# to do #
 
@@ -98,7 +102,6 @@ var app = {
 
 	startNewAccount: function(){
 		//called to open the create new account window
-
 		app.gotoScreen("new-account.html")
 
 	},
@@ -199,12 +202,14 @@ var app = {
 
 	saveAccount: function(){
 
-		//# to do #
+		var user = {};
+		user.name = document.querySelector("#username").value;
+		user.email = document.querySelector("#email").value;
+		user.password = document.querySelector("#password").value;
 
-		//get the new user's details, then save them as an object to localStorage
+		window.localStorage.setItem("user", JSON.stringify(user));
 
-		//return to the main window
-		app.gotoScreen("index.html")
+		app.gotoScreen("index.html");
 	},
 
 	initNewPhotoPage: function() {
